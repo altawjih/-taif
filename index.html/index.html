@@ -15,7 +15,7 @@
       margin: 0;
       background: #f3f6fb;
       color: #1f2937;
-      line-height: 1.8;
+      line-height: 1.7;
     }
 
     header {
@@ -28,11 +28,6 @@
     header h1 {
       margin: 0 0 10px;
       font-size: 32px;
-    }
-
-    header p {
-      margin: 0;
-      color: #e5e7eb;
     }
 
     main {
@@ -68,18 +63,44 @@
       margin-bottom: 6px;
     }
 
-    input, select, textarea {
+    input,
+    select,
+    textarea {
       width: 100%;
       padding: 12px;
       border: 1px solid #d1d5db;
       border-radius: 10px;
       font-size: 15px;
       background: white;
+      margin-bottom: 12px;
     }
 
     textarea {
-      min-height: 95px;
+      min-height: 80px;
       resize: vertical;
+    }
+
+    .procedure-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .procedure-btn {
+      background: #eef6ff;
+      color: #1e40af;
+      border: 1px solid #bfdbfe;
+      border-radius: 10px;
+      padding: 10px 14px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .procedure-btn.active {
+      background: #2563eb;
+      color: white;
     }
 
     .btns {
@@ -119,76 +140,90 @@
 
     #report {
       background: white;
-      padding: 35px;
-      color: #111827;
       width: 794px;
       min-height: 1123px;
       margin: auto;
+      padding: 28px;
       direction: rtl;
+      color: #111827;
     }
 
     .report-head {
       text-align: center;
       border-bottom: 3px solid #0f766e;
-      padding-bottom: 15px;
-      margin-bottom: 20px;
+      padding-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .report-head h1 {
       margin: 0;
-      font-size: 26px;
+      font-size: 24px;
     }
 
     .report-head p {
-      margin: 5px 0 0;
+      margin: 4px 0 0;
+      font-size: 13px;
       color: #374151;
     }
 
-    .report-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      margin-bottom: 18px;
+    .report-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-bottom: 10px;
     }
 
-    .item {
-      border: 1px solid #d1d5db;
-      border-radius: 10px;
-      padding: 10px;
-      background: #f9fafb;
+    .report-table td {
+      border: 1px solid #cbd5e1;
+      padding: 7px;
+      width: 50%;
+      vertical-align: top;
     }
 
-    .item strong {
+    .report-table strong {
       color: #0f766e;
     }
 
-    .section {
-      margin-top: 18px;
-      border: 1px solid #d1d5db;
-      border-radius: 12px;
-      padding: 14px;
-      min-height: 60px;
+    .two-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .report-section {
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 10px;
+      min-height: 100px;
+      font-size: 13px;
       white-space: pre-line;
     }
 
-    .section-title {
-      font-weight: bold;
+    .report-section strong {
+      display: block;
       color: #2563eb;
-      margin: 18px 0 8px;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+
+    .wide {
+      grid-column: span 2;
     }
 
     .signatures {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 45px;
+      gap: 12px;
+      margin-top: 28px;
       text-align: center;
+      font-size: 13px;
     }
 
     .sig {
       border-top: 1px solid #111827;
-      padding-top: 10px;
-      min-height: 60px;
+      padding-top: 8px;
+      min-height: 50px;
     }
 
     footer {
@@ -199,32 +234,15 @@
       margin-top: 30px;
     }
 
-    @media print {
-      body {
-        background: white;
-      }
-
-      header, .box, footer, .btns {
-        display: none !important;
-      }
-
-      #previewBox {
-        display: block !important;
-        box-shadow: none;
-      }
-
-      #report {
-        width: 100%;
-        min-height: auto;
-        padding: 20px;
-      }
-    }
-
     @media (max-width: 800px) {
       .grid,
-      .report-grid,
+      .two-columns,
       .signatures {
         grid-template-columns: 1fr;
+      }
+
+      .wide {
+        grid-column: span 1;
       }
 
       #report {
@@ -301,7 +319,7 @@
 
       <div>
         <label>المشكلة السلوكية</label>
-        <select id="problem" onchange="fillDetails()">
+        <select id="problem">
           <option value="">اختر المشكلة</option>
         </select>
       </div>
@@ -312,17 +330,17 @@
       </div>
     </div>
 
-    <label style="margin-top:15px;">وصف مختصر للموقف</label>
+    <label>اختر الإجراء التربوي</label>
+    <div id="procedureButtons" class="procedure-buttons"></div>
+
+    <label>وصف مختصر للموقف</label>
     <textarea id="description" placeholder="اكتب وصفًا مختصرًا لما حدث"></textarea>
 
-    <label>الإجراء المتخذ</label>
-    <textarea id="action" placeholder="سيظهر الإجراء المقترح تلقائيًا، ويمكنك تعديله"></textarea>
+    <label>الإجراء التربوي المطلوب عمله</label>
+    <textarea id="action" placeholder="اختر الإجراء المناسب ليظهر المطلوب عمله تلقائيًا"></textarea>
 
     <label>مدى استجابة الطالب</label>
     <textarea id="response" placeholder="مثال: استجاب للتوجيه / لم يستجب / يحتاج متابعة"></textarea>
-
-    <label>ملاحظات إضافية</label>
-    <textarea id="notes" placeholder="أي ملاحظات إضافية"></textarea>
 
     <label>توقيع المعلم</label>
     <input id="signature" type="text" placeholder="اكتب اسم المعلم للتوقيع">
@@ -336,7 +354,6 @@
 
   <div class="box" id="previewBox">
     <h2>معاينة النموذج</h2>
-
     <div id="report"></div>
 
     <div class="btns">
@@ -354,11 +371,86 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 <script>
+  const commonProceduresFirst = [
+    {
+      title: "الإجراء الأول",
+      icon: "①",
+      text: "التنبيه الشفهي الأول من المعلم أو إدارة المدرسة للطالب عن السلوك والأضرار المترتبة عليه، وكونه سلوكًا غير مرغوب فيه بأسلوب تربوي حكيم."
+    },
+    {
+      title: "الإجراء الثاني",
+      icon: "②",
+      text: "التنبيه الشفهي الثاني من المعلم أو إدارة المدرسة عند مباشرة الموقف، وتعزيز السلوك الإيجابي، ومناقشة الطالب في مسببات السلوك السلبي والبدء في الحد منه."
+    },
+    {
+      title: "الإجراء الثالث",
+      icon: "③",
+      text: "تدوين المشكلة السلوكية من المعلم المباشر للموقف، وتوقيع الطالب عليها، وإشعار ولي الأمر، وحسم درجة من درجات السلوك الإيجابي، وتمكين الطالب من فرص التعويض، ثم تحويله إلى الموجه الطلابي لدراسة حالته."
+    },
+    {
+      title: "الإجراء الرابع",
+      icon: "④",
+      text: "دعوة ولي أمر الطالب، وإخطاره بالسلوك غير المرغوب فيه، والاتفاق على خطة لتعديل السلوك بين الأسرة والمدرسة، وتحويل الطالب إلى لجنة التوجيه الطلابي عند الحاجة، مع متابعة الحالة من قبل الموجه الطلابي."
+    }
+  ];
+
+  const commonProceduresSecond = [
+    {
+      title: "الإجراء الأول",
+      icon: "①",
+      text: "تحويل الطالب إلى إدارة المدرسة، وإشعار ولي الأمر هاتفيًا بالمشكلة السلوكية والإجراءات المتخذة، وحسم درجتين من السلوك الإيجابي، وتمكين الطالب من فرص التعويض."
+    },
+    {
+      title: "الإجراء الثاني",
+      icon: "②",
+      text: "تطبيق ما ورد في الإجراء الأول، مع تغيير إجراءات خطة تعديل السلوك، ودعوة ولي الأمر، ومناقشة الخطة، وأخذ تعهد خطي على الطالب بعدم تكرار السلوك غير المرغوب فيه."
+    },
+    {
+      title: "الإجراء الثالث",
+      icon: "③",
+      text: "تطبيق ما ورد في الإجراء الثاني، مع تحويل الطالب إلى لجنة التوجيه الطلابي في المدرسة لبحث أسباب عدم الاستجابة، وإيجاد الحلول المناسبة، ونقل الطالب إلى فصل آخر عند الحاجة وفق قرار اللجنة."
+    }
+  ];
+
+  const commonProceduresThird = [
+    {
+      title: "الإجراء الأول",
+      icon: "①",
+      text: "دعوة ولي الأمر، ومناقشة خطة تعديل السلوك، ووضع برنامج وقائي مشترك مع الأسرة، وأخذ تعهد خطي على الطالب بعدم تكرار السلوك، وحسم ثلاث درجات من السلوك الإيجابي."
+    },
+    {
+      title: "الإجراء الثاني",
+      icon: "②",
+      text: "تطبيق ما ورد في الإجراء الأول، مع تغيير إجراءات خطة تعديل السلوك، ونقل الطالب إلى فصل آخر وفق قرار لجنة التوجيه الطلابي، ومتابعة الحالة من قبل الموجه الطلابي."
+    },
+    {
+      title: "الإجراء الثالث",
+      icon: "③",
+      text: "تطبيق ما ورد في الإجراء الثاني، ورفع محضر اجتماع لجنة التوجيه الطلابي لإدارة التعليم بصفة عاجلة، والنظر في نقل الطالب إلى مدرسة أخرى وفق الإجراءات النظامية."
+    }
+  ];
+
+  const commonProceduresFourth = [
+    {
+      title: "إجراء مباشر",
+      icon: "⚠",
+      text: "دعوة ولي الأمر فورًا، وتوضيح الإجراءات المترتبة على السلوك، ومناقشة خطة تعديل السلوك، وحسم عشر درجات من السلوك الإيجابي، وتحويل الطالب إلى الموجه الطلابي، ورفع محضر للجنة التوجيه الطلابي وإدارة التعليم عند الحاجة."
+    }
+  ];
+
+  const commonProceduresFifth = [
+    {
+      title: "إجراء عاجل",
+      icon: "🚨",
+      text: "إبلاغ إدارة المدرسة فورًا، ودعوة ولي الأمر، وإعداد محضر رسمي، والرفع العاجل لإدارة التعليم، وإبلاغ الجهات المختصة عند الحاجة، مع تقديم الخدمات التربوية والعلاجية للطالب."
+    }
+  ];
+
   const data = {
     primary: {
       "الدرجة الأولى - حسم درجة واحدة": {
         discount: "درجة واحدة",
-        action: "تنبيه شفهي، ثم توثيق المشكلة عند التكرار، وإشعار ولي الأمر عند الحاجة، وتحويل الطالب للموجه الطلابي إذا استمر السلوك.",
+        procedures: commonProceduresFirst,
         problems: [
           "عدم التقيد بالزي المدرسي",
           "التأخر الصباحي",
@@ -374,7 +466,7 @@
 
       "الدرجة الثانية - حسم درجتين": {
         discount: "درجتان",
-        action: "إشعار ولي الأمر، حسم درجتين من السلوك، الاعتذار لمن أسيء إليه، إصلاح ما أتلفه الطالب أو إحضار بديل، وإحالة الطالب للموجه الطلابي لدراسة حالته.",
+        procedures: commonProceduresSecond,
         problems: [
           "عدم حضور الحصة الدراسية أو الهروب منها",
           "الدخول أو الخروج من الفصل دون استئذان",
@@ -391,7 +483,7 @@
 
       "الدرجة الثالثة - حسم ثلاث درجات": {
         discount: "ثلاث درجات",
-        action: "دعوة ولي الأمر، إعداد خطة تعديل سلوك، أخذ تعهد خطي على الطالب، حسم ثلاث درجات، الاعتذار لمن أسيء إليه، إصلاح التلفيات، وإحالة الطالب للموجه الطلابي.",
+        procedures: commonProceduresThird,
         problems: [
           "إلحاق الضرر المتعمد بتجهيزات المدرسة أو مبانيها",
           "سرقة شيء من ممتلكات الطلبة أو المدرسة",
@@ -405,7 +497,7 @@
 
       "الدرجة الرابعة - حسم عشر درجات": {
         discount: "عشر درجات",
-        action: "دعوة ولي الأمر فورًا، توضيح الإجراءات المترتبة، إعداد خطة تعديل سلوك، حسم عشر درجات، الاعتذار، إحالة الطالب للموجه الطلابي، ورفع محضر للجنة التوجيه الطلابي عند الحاجة.",
+        procedures: commonProceduresFourth,
         problems: [
           "الإساءة أو الاستهزاء بشيء من شعائر الإسلام",
           "الإساءة للدولة أو رموزها",
@@ -415,7 +507,6 @@
           "التدخين داخل المدرسة",
           "حيازة آلة حادة",
           "الجرائم المعلوماتية",
-          "إظهار صور أو شعارات تدل على الشذوذ أو الترويج لها",
           "التنمر بجميع أنواعه وأشكاله",
           "حيازة أو عرض مواد إعلامية ممنوعة"
         ]
@@ -425,7 +516,7 @@
     middleHigh: {
       "الدرجة الأولى - حسم درجة واحدة": {
         discount: "درجة واحدة",
-        action: "تنبيه شفهي أول، ثم تنبيه شفهي ثان عند التكرار، ثم توثيق المشكلة وإشعار ولي الأمر وتحويل الطالب للموجه الطلابي إذا استمر السلوك.",
+        procedures: commonProceduresFirst,
         problems: [
           "عدم التقيد بالزي المدرسي",
           "التأخر الصباحي",
@@ -441,7 +532,7 @@
 
       "الدرجة الثانية - حسم درجتين": {
         discount: "درجتان",
-        action: "إشعار ولي الأمر، حسم درجتين، الاعتذار لمن أسيء إليه، إصلاح ما أتلف، وإحالة الطالب للموجه الطلابي لدراسة الحالة.",
+        procedures: commonProceduresSecond,
         problems: [
           "عدم حضور الحصة أو الهروب منها",
           "الدخول أو الخروج من الفصل دون استئذان",
@@ -457,7 +548,7 @@
 
       "الدرجة الثالثة - حسم ثلاث درجات": {
         discount: "ثلاث درجات",
-        action: "دعوة ولي الأمر، إعداد خطة تعديل سلوك، أخذ تعهد خطي، حسم ثلاث درجات، الاعتذار، إصلاح التلفيات، وتحويل الطالب للموجه الطلابي.",
+        procedures: commonProceduresThird,
         problems: [
           "إلحاق الضرر المتعمد بتجهيزات المدرسة",
           "سرقة ممتلكات الطلبة أو المدرسة",
@@ -471,7 +562,7 @@
 
       "الدرجة الرابعة - حسم عشر درجات": {
         discount: "عشر درجات",
-        action: "دعوة ولي الأمر، حسم عشر درجات، إعداد محضر، إحالة الطالب للجنة التوجيه الطلابي، الرفع لإدارة التعليم عند الحاجة، وإبلاغ الجهات المختصة في الحالات التي تستدعي ذلك.",
+        procedures: commonProceduresFourth,
         problems: [
           "الإساءة أو الاستهزاء بشيء من شعائر الإسلام",
           "الإساءة للدولة أو رموزها",
@@ -488,7 +579,7 @@
 
       "الدرجة الخامسة - حسم خمس عشرة درجة": {
         discount: "خمس عشرة درجة",
-        action: "إبلاغ إدارة المدرسة فورًا، دعوة ولي الأمر، إعداد محضر رسمي، الرفع العاجل لإدارة التعليم، وإبلاغ الجهات المختصة عند الحاجة، مع تقديم الخدمات التربوية والعلاجية للطالب.",
+        procedures: commonProceduresFifth,
         problems: [
           "حيازة أو تعاطي أو ترويج المواد المخدرة أو المسكرات",
           "استخدام السلاح أو التهديد به",
@@ -514,6 +605,8 @@
 
     degree.innerHTML = '<option value="">اختر الدرجة</option>';
     problem.innerHTML = '<option value="">اختر المشكلة</option>';
+    document.getElementById("procedureButtons").innerHTML = "";
+    document.getElementById("action").value = "";
 
     if (!stage) return;
 
@@ -531,6 +624,8 @@
     const problem = document.getElementById("problem");
 
     problem.innerHTML = '<option value="">اختر المشكلة</option>';
+    document.getElementById("procedureButtons").innerHTML = "";
+    document.getElementById("action").value = "";
 
     if (!stage || !degree) return;
 
@@ -541,26 +636,53 @@
       problem.appendChild(option);
     });
 
-    document.getElementById("action").value = data[stage][degree].action;
+    loadProcedures();
   }
 
-  function fillDetails() {
+  function loadProcedures() {
     const stage = document.getElementById("stage").value;
     const degree = document.getElementById("degree").value;
+    const box = document.getElementById("procedureButtons");
 
-    if (stage && degree) {
-      document.getElementById("action").value = data[stage][degree].action;
-    }
+    box.innerHTML = "";
+
+    if (!stage || !degree) return;
+
+    const procedures = data[stage][degree].procedures;
+
+    procedures.forEach((item, index) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "procedure-btn";
+      btn.innerHTML = item.icon + " " + item.title;
+
+      btn.onclick = function () {
+        document.querySelectorAll(".procedure-btn").forEach(b => {
+          b.classList.remove("active");
+        });
+
+        btn.classList.add("active");
+        document.getElementById("action").value = item.text;
+      };
+
+      box.appendChild(btn);
+
+      if (index === 0) {
+        btn.click();
+      }
+    });
   }
 
   function buildReport() {
-    const stageText = document.getElementById("stage").selectedOptions[0]?.textContent || "غير محدد";
+    const stageText =
+      document.getElementById("stage").selectedOptions[0]?.textContent || "غير محدد";
+
     const degree = value("degree");
     const problem = value("problem");
+    const stage = document.getElementById("stage").value;
 
     let discount = "غير محدد";
 
-    const stage = document.getElementById("stage").value;
     if (stage && degree && data[stage][degree]) {
       discount = data[stage][degree].discount;
     }
@@ -573,33 +695,56 @@
         <p>وفق قواعد السلوك والمواظبة لطلاب وطالبات التعليم العام</p>
       </div>
 
-      <div class="report-grid">
-        <div class="item"><strong>اسم المدرسة:</strong><br>${value("school")}</div>
-        <div class="item"><strong>التاريخ:</strong><br>${value("date")}</div>
-        <div class="item"><strong>اسم الطالب:</strong><br>${value("student")}</div>
-        <div class="item"><strong>الصف / الفصل:</strong><br>${value("className")}</div>
-        <div class="item"><strong>اسم المعلم:</strong><br>${value("teacher")}</div>
-        <div class="item"><strong>المادة / الحصة:</strong><br>${value("subject")}</div>
-        <div class="item"><strong>المرحلة:</strong><br>${stageText}</div>
-        <div class="item"><strong>درجة المشكلة:</strong><br>${degree}</div>
-        <div class="item"><strong>مقدار الحسم:</strong><br>${discount}</div>
-        <div class="item"><strong>عدد مرات التكرار:</strong><br>${value("repeat")}</div>
+      <table class="report-table">
+        <tr>
+          <td><strong>اسم المدرسة:</strong><br>${value("school")}</td>
+          <td><strong>التاريخ:</strong><br>${value("date")}</td>
+        </tr>
+
+        <tr>
+          <td><strong>اسم الطالب:</strong><br>${value("student")}</td>
+          <td><strong>الصف / الفصل:</strong><br>${value("className")}</td>
+        </tr>
+
+        <tr>
+          <td><strong>اسم المعلم:</strong><br>${value("teacher")}</td>
+          <td><strong>المادة / الحصة:</strong><br>${value("subject")}</td>
+        </tr>
+
+        <tr>
+          <td><strong>المرحلة:</strong><br>${stageText}</td>
+          <td><strong>درجة المشكلة:</strong><br>${degree}</td>
+        </tr>
+
+        <tr>
+          <td><strong>مقدار الحسم:</strong><br>${discount}</td>
+          <td><strong>عدد مرات التكرار:</strong><br>${value("repeat")}</td>
+        </tr>
+      </table>
+
+      <div class="two-columns">
+
+        <div class="report-section">
+          <strong>المشكلة السلوكية</strong>
+          ${problem}
+        </div>
+
+        <div class="report-section">
+          <strong>وصف الموقف</strong>
+          ${value("description")}
+        </div>
+
+        <div class="report-section">
+          <strong>الإجراء التربوي المطلوب</strong>
+          ${value("action")}
+        </div>
+
+        <div class="report-section">
+          <strong>مدى استجابة الطالب</strong>
+          ${value("response")}
+        </div>
+
       </div>
-
-      <div class="section-title">المشكلة السلوكية</div>
-      <div class="section">${problem}</div>
-
-      <div class="section-title">وصف الموقف</div>
-      <div class="section">${value("description")}</div>
-
-      <div class="section-title">الإجراء المتخذ</div>
-      <div class="section">${value("action")}</div>
-
-      <div class="section-title">مدى استجابة الطالب</div>
-      <div class="section">${value("response")}</div>
-
-      <div class="section-title">ملاحظات إضافية</div>
-      <div class="section">${value("notes")}</div>
 
       <div class="signatures">
         <div class="sig">
@@ -632,7 +777,7 @@
     clone.style.width = "794px";
     clone.style.minHeight = "1123px";
     clone.style.background = "#ffffff";
-    clone.style.padding = "35px";
+    clone.style.padding = "28px";
     clone.style.position = "absolute";
     clone.style.top = "0";
     clone.style.left = "-9999px";
@@ -686,6 +831,7 @@
     document.getElementById("stage").value = "";
     document.getElementById("degree").innerHTML = '<option value="">اختر الدرجة</option>';
     document.getElementById("problem").innerHTML = '<option value="">اختر المشكلة</option>';
+    document.getElementById("procedureButtons").innerHTML = "";
     document.getElementById("report").innerHTML = "";
     document.getElementById("previewBox").style.display = "none";
     document.getElementById("repeat").value = 1;
