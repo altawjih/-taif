@@ -497,21 +497,38 @@
     }
 
     function downloadPDF() {
-      buildReport();
+  buildReport();
 
-      const element = document.getElementById('pdfArea');
-      const title = document.getElementById('reportTitle').value || 'report';
+  setTimeout(function () {
+    const element = document.getElementById('pdfArea');
+    const title = document.getElementById('reportTitle').value || 'report';
 
-      const options = {
-        margin: 0.35,
-        filename: title + '.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2, useCORS: true },
-        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
-      };
+    element.style.display = 'block';
+    element.style.background = 'white';
+    element.style.color = '#111827';
+    element.style.padding = '30px';
+    element.style.width = '750px';
+    element.style.minHeight = '1000px';
 
-      html2pdf().set(options).from(element).save();
-    }
+    const options = {
+      margin: 0.3,
+      filename: title + '.pdf',
+      image: { type: 'jpeg', quality: 1 },
+      html2canvas: {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: '#ffffff'
+      },
+      jsPDF: {
+        unit: 'in',
+        format: 'a4',
+        orientation: 'portrait'
+      }
+    };
+
+    html2pdf().set(options).from(element).save();
+  }, 500);
+}
 
     function clearForm() {
       document.getElementById('reportType').value = 'تقرير برنامج توجيهي';
