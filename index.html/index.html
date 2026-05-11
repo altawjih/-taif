@@ -277,7 +277,31 @@
 <script>
 function downloadPDF() {
 
-const element = document.querySelector('.form-box');
+<script>
+function downloadPDF() {
+
+  const school = document.querySelector('input[placeholder="اكتب اسم المدرسة"]').value;
+  const teacher = document.querySelector('input[placeholder="اكتب اسم المعلم"]').value;
+  const title = document.querySelector('input[placeholder="مثال: تقرير تنفيذ درس"]').value;
+  const content = document.querySelector('textarea').value;
+  const type = document.querySelector('select').value;
+
+  const report = document.createElement('div');
+
+  report.innerHTML = `
+    <div style="direction:rtl; font-family:Tahoma; padding:30px; width:700px; background:white;">
+      <h1 style="text-align:center;">${title}</h1>
+      <hr>
+      <p><strong>نوع التقرير:</strong> ${type}</p>
+      <p><strong>اسم المدرسة:</strong> ${school}</p>
+      <p><strong>اسم المعلم:</strong> ${teacher}</p>
+      <h3>محتوى التقرير:</h3>
+      <p style="line-height:2; white-space:pre-line;">${content}</p>
+    </div>
+  `;
+
+  document.body.appendChild(report);
+
   const options = {
     margin: 0.5,
     filename: 'report.pdf',
@@ -290,7 +314,9 @@ const element = document.querySelector('.form-box');
     }
   };
 
-  html2pdf().set(options).from(element).save();
+  html2pdf().set(options).from(report).save().then(() => {
+    document.body.removeChild(report);
+  });
 }
 </script>
     </div>
