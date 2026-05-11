@@ -1,295 +1,235 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>منصة التوجيه الطلابي</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>نموذج رصد مشكلة سلوكية</title>
 
   <style>
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
-      font-family:Tahoma, Arial, sans-serif;
+    * {
+      box-sizing: border-box;
+      font-family: Tahoma, Arial, sans-serif;
     }
 
-    body{
-      background:#f4f7fb;
-      color:#1f2937;
-      line-height:1.8;
+    body {
+      margin: 0;
+      background: #f3f6fb;
+      color: #1f2937;
+      line-height: 1.8;
     }
 
-    header{
-      background:linear-gradient(135deg,#2563eb,#0f766e);
-      color:white;
-      padding:24px 8%;
+    header {
+      background: linear-gradient(135deg, #0f766e, #2563eb);
+      color: white;
+      padding: 35px 8%;
+      text-align: center;
     }
 
-    nav{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      flex-wrap:wrap;
-      gap:15px;
+    header h1 {
+      margin: 0 0 10px;
+      font-size: 32px;
     }
 
-    .logo{
-      font-size:24px;
-      font-weight:bold;
+    header p {
+      margin: 0;
+      color: #e5e7eb;
     }
 
-    .nav-links a{
-      color:white;
-      text-decoration:none;
-      margin:0 10px;
-      font-weight:bold;
+    main {
+      padding: 35px 8%;
+      max-width: 1100px;
+      margin: auto;
     }
 
-    .hero{
-      padding:60px 0 30px;
-      max-width:850px;
+    .box {
+      background: white;
+      border-radius: 18px;
+      padding: 25px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      margin-bottom: 25px;
     }
 
-    .hero h1{
-      font-size:38px;
-      margin-bottom:15px;
+    h2 {
+      margin-top: 0;
+      color: #0f766e;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 10px;
     }
 
-    .hero p{
-      font-size:18px;
-      color:#e5e7eb;
-      margin-bottom:25px;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
     }
 
-    .btn{
-      display:inline-block;
-      padding:12px 24px;
-      border:none;
-      border-radius:10px;
-      cursor:pointer;
-      font-size:15px;
-      font-weight:bold;
-      text-decoration:none;
-      background:#2563eb;
-      color:white;
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 6px;
     }
 
-    .btn.white{
-      background:white;
-      color:#2563eb;
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 10px;
+      font-size: 15px;
+      background: white;
     }
 
-    .btn.gray{
-      background:#374151;
-      color:white;
+    textarea {
+      min-height: 95px;
+      resize: vertical;
     }
 
-    section{
-      padding:45px 8%;
+    .btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
     }
 
-    .section-title{
-      text-align:center;
-      font-size:28px;
-      margin-bottom:28px;
+    button {
+      border: none;
+      border-radius: 10px;
+      padding: 12px 22px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 15px;
     }
 
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:20px;
+    .primary {
+      background: #2563eb;
+      color: white;
     }
 
-    .card{
-      background:white;
-      border-radius:18px;
-      padding:24px;
-      box-shadow:0 8px 25px rgba(0,0,0,0.07);
-      border:1px solid #e5e7eb;
+    .dark {
+      background: #111827;
+      color: white;
     }
 
-    .card h3{
-      color:#2563eb;
-      margin-bottom:8px;
+    .gray {
+      background: #6b7280;
+      color: white;
     }
 
-    .dashboard{
-      background:#eef6ff;
+    #previewBox {
+      display: none;
     }
 
-    .template-card{
-      cursor:pointer;
-      transition:0.2s;
+    #report {
+      background: white;
+      padding: 35px;
+      color: #111827;
+      width: 794px;
+      min-height: 1123px;
+      margin: auto;
+      direction: rtl;
     }
 
-    .template-card:hover{
-      transform:translateY(-5px);
-      border-color:#2563eb;
+    .report-head {
+      text-align: center;
+      border-bottom: 3px solid #0f766e;
+      padding-bottom: 15px;
+      margin-bottom: 20px;
     }
 
-    .form-box{
-      max-width:900px;
-      margin:auto;
-      background:white;
-      padding:30px;
-      border-radius:18px;
-      box-shadow:0 8px 25px rgba(0,0,0,0.07);
+    .report-head h1 {
+      margin: 0;
+      font-size: 26px;
     }
 
-    .grid-2{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:18px;
+    .report-head p {
+      margin: 5px 0 0;
+      color: #374151;
     }
 
-    label{
-      display:block;
-      margin-bottom:6px;
-      font-weight:bold;
+    .report-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 18px;
     }
 
-    input,
-    textarea,
-    select{
-      width:100%;
-      padding:12px;
-      margin-bottom:16px;
-      border:1px solid #d1d5db;
-      border-radius:10px;
-      font-size:15px;
+    .item {
+      border: 1px solid #d1d5db;
+      border-radius: 10px;
+      padding: 10px;
+      background: #f9fafb;
     }
 
-    textarea{
-      min-height:120px;
-      resize:vertical;
+    .item strong {
+      color: #0f766e;
     }
 
-    .actions{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:8px;
+    .section {
+      margin-top: 18px;
+      border: 1px solid #d1d5db;
+      border-radius: 12px;
+      padding: 14px;
+      min-height: 60px;
+      white-space: pre-line;
     }
 
-    #imagePreview{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
-      gap:12px;
-      margin-top:12px;
+    .section-title {
+      font-weight: bold;
+      color: #2563eb;
+      margin: 18px 0 8px;
     }
 
-    #imagePreview img{
-      width:100%;
-      height:120px;
-      object-fit:cover;
-      border-radius:12px;
-      border:1px solid #e5e7eb;
+    .signatures {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 45px;
+      text-align: center;
     }
 
-    #reportPreview{
-      max-width:850px;
-      margin:35px auto 0;
-      background:white;
-      padding:35px;
-      border-radius:18px;
-      box-shadow:0 8px 25px rgba(0,0,0,0.07);
-      display:none;
+    .sig {
+      border-top: 1px solid #111827;
+      padding-top: 10px;
+      min-height: 60px;
     }
 
-    .report-paper{
-      background:white;
-      color:#111827;
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #111827;
+      color: white;
+      margin-top: 30px;
     }
 
-    .report-header{
-      text-align:center;
-      border-bottom:3px solid #2563eb;
-      padding-bottom:18px;
-      margin-bottom:22px;
-    }
-
-    .report-header h1{
-      font-size:28px;
-      margin-bottom:8px;
-    }
-
-    .report-info{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:12px;
-      margin-bottom:24px;
-    }
-
-    .info-box{
-      background:#f8fafc;
-      border:1px solid #e5e7eb;
-      border-radius:12px;
-      padding:12px;
-    }
-
-    .info-box strong{
-      color:#2563eb;
-    }
-
-    .report-content{
-      border:1px solid #e5e7eb;
-      border-radius:12px;
-      padding:18px;
-      min-height:120px;
-      white-space:pre-line;
-      margin-bottom:22px;
-    }
-
-    .report-images{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:14px;
-      margin-top:15px;
-    }
-
-    .report-images img{
-      width:100%;
-      max-height:230px;
-      object-fit:cover;
-      border-radius:12px;
-      border:1px solid #d1d5db;
-    }
-
-    .report-footer{
-      margin-top:30px;
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:18px;
-      text-align:center;
-    }
-
-    .signature{
-      border-top:1px solid #9ca3af;
-      padding-top:10px;
-      margin-top:35px;
-    }
-
-    footer{
-      text-align:center;
-      padding:24px;
-      background:#111827;
-      color:white;
-      margin-top:40px;
-    }
-
-    @media (max-width:700px){
-
-      .hero h1{
-        font-size:28px;
+    @media print {
+      body {
+        background: white;
       }
 
-      .grid-2,
-      .report-info,
-      .report-footer,
-      .report-images{
-        grid-template-columns:1fr;
+      header, .box, footer, .btns {
+        display: none !important;
       }
 
+      #previewBox {
+        display: block !important;
+        box-shadow: none;
+      }
+
+      #report {
+        width: 100%;
+        min-height: auto;
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 800px) {
+      .grid,
+      .report-grid,
+      .signatures {
+        grid-template-columns: 1fr;
+      }
+
+      #report {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -297,445 +237,459 @@
 <body>
 
 <header>
-
-  <nav>
-    <div class="logo">منصة التوجيه الطلابي</div>
-
-    <div class="nav-links">
-      <a href="#home">الرئيسية</a>
-      <a href="#templates">القوالب</a>
-      <a href="#reportForm">إنشاء تقرير</a>
-    </div>
-  </nav>
-
-  <div class="hero" id="home">
-    <p>واجهة مجانية لإنشاء التقارير وتصديرها PDF.</p>
-    <a class="btn white" href="#reportForm">ابدأ الآن</a>
-  </div>
-
+  <h1>نموذج رصد مشكلة سلوكية</h1>
+  <p>خاص بالمعلم والموجه الطلابي وفق قواعد السلوك والمواظبة</p>
 </header>
 
-<section>
+<main>
 
-  <h2 class="section-title">مميزات المنصة</h2>
+  <div class="box">
+    <h2>بيانات الطالب والمعلم</h2>
 
-  <div class="cards">
-
-    <div class="card">
-      <h3>تعبئة سهلة</h3>
-      <p>إدخال بيانات التقرير بسهولة.</p>
-    </div>
-
-    <div class="card">
-      <h3>رفع صور</h3>
-      <p>إضافة صور داخل التقرير النهائي.</p>
-    </div>
-
-    <div class="card">
-      <h3>تصدير PDF</h3>
-      <p>تصدير التقرير النهائي بشكل احترافي.</p>
-    </div>
-
-  </div>
-
-</section>
-
-<section class="dashboard" id="templates">
-
-  <h2 class="section-title">قوالب جاهزة</h2>
-
-  <div class="cards">
-
-    <div class="card template-card" onclick="chooseTemplate('تقرير برنامج توجيهي')">
-      <h3>تقرير برنامج توجيهي</h3>
-    </div>
-
-    <div class="card template-card" onclick="chooseTemplate('تقرير حالة طالب')">
-      <h3>تقرير حالة طالب</h3>
-    </div>
-
-    <div class="card template-card" onclick="chooseTemplate('تقرير اجتماع')">
-      <h3>تقرير اجتماع</h3>
-    </div>
-
-    <div class="card template-card" onclick="chooseTemplate('تقرير زيارة')">
-      <h3>تقرير زيارة</h3>
-    </div>
-
-  </div>
-
-</section>
-
-<section id="reportForm">
-
-  <h2 class="section-title">إنشاء تقرير</h2>
-
-  <div class="form-box">
-
-    <div class="grid-2">
+    <div class="grid">
+      <div>
+        <label>اسم المدرسة</label>
+        <input id="school" type="text" placeholder="اكتب اسم المدرسة">
+      </div>
 
       <div>
-        <label>نوع التقرير</label>
+        <label>التاريخ</label>
+        <input id="date" type="date">
+      </div>
 
-        <select id="reportType">
-          <option>تقرير برنامج توجيهي</option>
-          <option>تقرير حالة طالب</option>
-          <option>تقرير اجتماع</option>
-          <option>تقرير زيارة</option>
+      <div>
+        <label>اسم الطالب</label>
+        <input id="student" type="text" placeholder="اكتب اسم الطالب">
+      </div>
+
+      <div>
+        <label>الصف / الفصل</label>
+        <input id="className" type="text" placeholder="مثال: ثالث متوسط / 2">
+      </div>
+
+      <div>
+        <label>اسم المعلم</label>
+        <input id="teacher" type="text" placeholder="اكتب اسم المعلم">
+      </div>
+
+      <div>
+        <label>المادة / الحصة</label>
+        <input id="subject" type="text" placeholder="مثال: لغتي / الحصة الثالثة">
+      </div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>اختيار المشكلة السلوكية</h2>
+
+    <div class="grid">
+      <div>
+        <label>المرحلة</label>
+        <select id="stage" onchange="loadDegrees()">
+          <option value="">اختر المرحلة</option>
+          <option value="primary">المرحلة الابتدائية</option>
+          <option value="middleHigh">المرحلة المتوسطة والثانوية</option>
         </select>
       </div>
 
       <div>
-        <label>تاريخ التقرير</label>
-        <input id="reportDate" type="date">
-      </div>
-
-    </div>
-
-    <div class="grid-2">
-
-      <div>
-        <label>اسم المدرسة</label>
-        <input id="schoolName" type="text">
+        <label>درجة المشكلة</label>
+        <select id="degree" onchange="loadProblems()">
+          <option value="">اختر الدرجة</option>
+        </select>
       </div>
 
       <div>
-        <label>اسم الموجه الطلابي </label>
-        <input id="teacherName" type="text">
-      </div>
-
-    </div>
-
-    <div class="grid-2">
-
-      <div>
-        <label>عنوان التقرير</label>
-        <input id="reportTitle" type="text">
+        <label>المشكلة السلوكية</label>
+        <select id="problem" onchange="fillDetails()">
+          <option value="">اختر المشكلة</option>
+        </select>
       </div>
 
       <div>
-        <label>الفئة المستهدفة</label>
-        <input id="targetGroup" type="text">
+        <label>عدد مرات التكرار</label>
+        <input id="repeat" type="number" min="1" value="1">
       </div>
-
     </div>
 
-    <label>الأهداف</label>
-    <textarea id="goals"></textarea>
+    <label style="margin-top:15px;">وصف مختصر للموقف</label>
+    <textarea id="description" placeholder="اكتب وصفًا مختصرًا لما حدث"></textarea>
 
-    <label>وصف التنفيذ</label>
-    <textarea id="content"></textarea>
+    <label>الإجراء المتخذ</label>
+    <textarea id="action" placeholder="سيظهر الإجراء المقترح تلقائيًا، ويمكنك تعديله"></textarea>
 
-    <label>رفع الصور</label>
-    <input id="images" type="file" multiple accept="image/*" onchange="previewImages()">
+    <label>مدى استجابة الطالب</label>
+    <textarea id="response" placeholder="مثال: استجاب للتوجيه / لم يستجب / يحتاج متابعة"></textarea>
 
-    <div id="imagePreview"></div>
+    <label>ملاحظات إضافية</label>
+    <textarea id="notes" placeholder="أي ملاحظات إضافية"></textarea>
 
-    <div class="actions">
+    <label>توقيع المعلم</label>
+    <input id="signature" type="text" placeholder="اكتب اسم المعلم للتوقيع">
 
-      <button class="btn" onclick="buildReport()">
-        معاينة التقرير
-      </button>
-
-      <button class="btn gray" onclick="downloadPDF()">
-        تصدير PDF
-      </button>
-
-      <button class="btn gray" onclick="clearForm()">
-        مسح البيانات
-      </button>
-
+    <div class="btns">
+      <button class="primary" onclick="buildReport()">معاينة النموذج</button>
+      <button class="dark" onclick="downloadPDF()">تصدير PDF</button>
+      <button class="gray" onclick="clearForm()">مسح البيانات</button>
     </div>
-
   </div>
 
-  <div id="reportPreview">
-    <div id="pdfArea" class="report-paper"></div>
+  <div class="box" id="previewBox">
+    <h2>معاينة النموذج</h2>
+
+    <div id="report"></div>
+
+    <div class="btns">
+      <button class="dark" onclick="downloadPDF()">تصدير PDF</button>
+    </div>
   </div>
 
-</section>
+</main>
 
 <footer>
-  جميع الحقوق محفوظة © منصة التوجيه الطلابي
+  نموذج إلكتروني مساعد لرصد المشكلات السلوكية
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 <script>
+  const data = {
+    primary: {
+      "الدرجة الأولى - حسم درجة واحدة": {
+        discount: "درجة واحدة",
+        action: "تنبيه شفهي، ثم توثيق المشكلة عند التكرار، وإشعار ولي الأمر عند الحاجة، وتحويل الطالب للموجه الطلابي إذا استمر السلوك.",
+        problems: [
+          "عدم التقيد بالزي المدرسي",
+          "التأخر الصباحي",
+          "عدم حضور الاصطفاف الصباحي",
+          "التأخر عن الاصطفاف الصباحي",
+          "التأخر في الدخول إلى الحصة",
+          "تناول الأطعمة أو المشروبات أثناء الدرس دون استئذان",
+          "النوم داخل الفصل",
+          "تكرار الخروج والدخول من البوابة قبل وقت الحضور أو الانصراف",
+          "التجمهر أمام بوابة المدرسة"
+        ]
+      },
 
-let uploadedImages = [];
+      "الدرجة الثانية - حسم درجتين": {
+        discount: "درجتان",
+        action: "إشعار ولي الأمر، حسم درجتين من السلوك، الاعتذار لمن أسيء إليه، إصلاح ما أتلفه الطالب أو إحضار بديل، وإحالة الطالب للموجه الطلابي لدراسة حالته.",
+        problems: [
+          "عدم حضور الحصة الدراسية أو الهروب منها",
+          "الدخول أو الخروج من الفصل دون استئذان",
+          "دخول فصل آخر دون استئذان",
+          "إثارة الفوضى داخل الفصل أو المدرسة أو وسيلة النقل المدرسي",
+          "الشجار أو الاشتراك في مضاربة جماعية",
+          "الإشارة بحركات مخلة بالأدب تجاه الطلبة",
+          "التلفظ بكلمات نابية على الطلبة أو تهديدهم أو السخرية منهم",
+          "إلحاق الضرر المتعمد بممتلكات الطلبة",
+          "العبث بتجهيزات المدرسة أو مبانيها",
+          "امتهان الكتب الدراسية"
+        ]
+      },
 
-document.getElementById('reportDate').valueAsDate = new Date();
+      "الدرجة الثالثة - حسم ثلاث درجات": {
+        discount: "ثلاث درجات",
+        action: "دعوة ولي الأمر، إعداد خطة تعديل سلوك، أخذ تعهد خطي على الطالب، حسم ثلاث درجات، الاعتذار لمن أسيء إليه، إصلاح التلفيات، وإحالة الطالب للموجه الطلابي.",
+        problems: [
+          "إلحاق الضرر المتعمد بتجهيزات المدرسة أو مبانيها",
+          "سرقة شيء من ممتلكات الطلبة أو المدرسة",
+          "التعرض لأحد الطلبة بالضرب",
+          "التصوير أو التسجيل الصوتي للطلبة",
+          "الهروب من المدرسة",
+          "التوقيع عن ولي الأمر دون علمه",
+          "إحضار أو استخدام مواد أو ألعاب خطرة"
+        ]
+      },
 
-function chooseTemplate(name){
+      "الدرجة الرابعة - حسم عشر درجات": {
+        discount: "عشر درجات",
+        action: "دعوة ولي الأمر فورًا، توضيح الإجراءات المترتبة، إعداد خطة تعديل سلوك، حسم عشر درجات، الاعتذار، إحالة الطالب للموجه الطلابي، ورفع محضر للجنة التوجيه الطلابي عند الحاجة.",
+        problems: [
+          "الإساءة أو الاستهزاء بشيء من شعائر الإسلام",
+          "الإساءة للدولة أو رموزها",
+          "التحرش الجنسي",
+          "إشعال النار داخل المدرسة",
+          "حيازة السجائر بأنواعها",
+          "التدخين داخل المدرسة",
+          "حيازة آلة حادة",
+          "الجرائم المعلوماتية",
+          "إظهار صور أو شعارات تدل على الشذوذ أو الترويج لها",
+          "التنمر بجميع أنواعه وأشكاله",
+          "حيازة أو عرض مواد إعلامية ممنوعة"
+        ]
+      }
+    },
 
-  document.getElementById('reportType').value = name;
-  document.getElementById('reportTitle').value = name;
+    middleHigh: {
+      "الدرجة الأولى - حسم درجة واحدة": {
+        discount: "درجة واحدة",
+        action: "تنبيه شفهي أول، ثم تنبيه شفهي ثان عند التكرار، ثم توثيق المشكلة وإشعار ولي الأمر وتحويل الطالب للموجه الطلابي إذا استمر السلوك.",
+        problems: [
+          "عدم التقيد بالزي المدرسي",
+          "التأخر الصباحي",
+          "عدم حضور الاصطفاف الصباحي",
+          "التأخر عن الاصطفاف الصباحي",
+          "التأخر في الدخول إلى الحصة",
+          "تناول الأطعمة أو المشروبات أثناء الدرس دون استئذان",
+          "النوم داخل الفصل",
+          "إعاقة سير الحصة بحديث جانبي أو تصرف غير مناسب",
+          "تكرار الخروج والدخول دون إذن"
+        ]
+      },
 
-  document.getElementById('reportForm').scrollIntoView({
-    behavior:'smooth'
-  });
+      "الدرجة الثانية - حسم درجتين": {
+        discount: "درجتان",
+        action: "إشعار ولي الأمر، حسم درجتين، الاعتذار لمن أسيء إليه، إصلاح ما أتلف، وإحالة الطالب للموجه الطلابي لدراسة الحالة.",
+        problems: [
+          "عدم حضور الحصة أو الهروب منها",
+          "الدخول أو الخروج من الفصل دون استئذان",
+          "إثارة الفوضى داخل الفصل أو المدرسة",
+          "الشجار أو الاشتراك في مضاربة",
+          "التلفظ بكلمات غير لائقة على الطلبة",
+          "تهديد الطلبة أو السخرية منهم",
+          "إلحاق الضرر بممتلكات الطلبة",
+          "العبث بتجهيزات المدرسة",
+          "امتهان الكتب الدراسية"
+        ]
+      },
 
-}
+      "الدرجة الثالثة - حسم ثلاث درجات": {
+        discount: "ثلاث درجات",
+        action: "دعوة ولي الأمر، إعداد خطة تعديل سلوك، أخذ تعهد خطي، حسم ثلاث درجات، الاعتذار، إصلاح التلفيات، وتحويل الطالب للموجه الطلابي.",
+        problems: [
+          "إلحاق الضرر المتعمد بتجهيزات المدرسة",
+          "سرقة ممتلكات الطلبة أو المدرسة",
+          "الاعتداء على أحد الطلبة بالضرب",
+          "التصوير أو التسجيل الصوتي للطلبة",
+          "الهروب من المدرسة",
+          "التوقيع عن ولي الأمر دون علمه",
+          "إحضار مواد أو ألعاب خطرة"
+        ]
+      },
 
-function previewImages(){
+      "الدرجة الرابعة - حسم عشر درجات": {
+        discount: "عشر درجات",
+        action: "دعوة ولي الأمر، حسم عشر درجات، إعداد محضر، إحالة الطالب للجنة التوجيه الطلابي، الرفع لإدارة التعليم عند الحاجة، وإبلاغ الجهات المختصة في الحالات التي تستدعي ذلك.",
+        problems: [
+          "الإساءة أو الاستهزاء بشيء من شعائر الإسلام",
+          "الإساءة للدولة أو رموزها",
+          "التحرش الجنسي",
+          "إشعال النار داخل المدرسة",
+          "حيازة السجائر بأنواعها",
+          "التدخين داخل المدرسة",
+          "حيازة آلة حادة",
+          "الجرائم المعلوماتية",
+          "التنمر بجميع أنواعه",
+          "حيازة أو عرض مواد إعلامية ممنوعة"
+        ]
+      },
 
-  const files = document.getElementById('images').files;
+      "الدرجة الخامسة - حسم خمس عشرة درجة": {
+        discount: "خمس عشرة درجة",
+        action: "إبلاغ إدارة المدرسة فورًا، دعوة ولي الأمر، إعداد محضر رسمي، الرفع العاجل لإدارة التعليم، وإبلاغ الجهات المختصة عند الحاجة، مع تقديم الخدمات التربوية والعلاجية للطالب.",
+        problems: [
+          "حيازة أو تعاطي أو ترويج المواد المخدرة أو المسكرات",
+          "استخدام السلاح أو التهديد به",
+          "الاعتداء الجسيم على أحد منسوبي المدرسة",
+          "القضايا الأخلاقية الجسيمة",
+          "الأفعال التي تهدد سلامة الطلبة أو منسوبي المدرسة",
+          "أي مشكلة عالية الخطورة تقررها إدارة المدرسة أو لجنة التوجيه الطلابي"
+        ]
+      }
+    }
+  };
 
-  const preview = document.getElementById('imagePreview');
+  document.getElementById("date").valueAsDate = new Date();
 
-  preview.innerHTML = '';
-
-  uploadedImages = [];
-
-  Array.from(files).forEach(file => {
-
-    const reader = new FileReader();
-
-    reader.onload = function(e){
-
-      uploadedImages.push(e.target.result);
-
-      const img = document.createElement('img');
-
-      img.src = e.target.result;
-
-      preview.appendChild(img);
-
-    };
-
-    reader.readAsDataURL(file);
-
-  });
-
-}
-
-function getValue(id){
-
-  return document.getElementById(id).value || 'غير محدد';
-
-}
-
-function buildReport(){
-
-  const pdfArea = document.getElementById('pdfArea');
-
-  const reportPreview = document.getElementById('reportPreview');
-
-  const imagesHtml = uploadedImages.length
-  ?
-  `
-  <h3>صور التقرير</h3>
-
-  <div class="report-images">
-    ${uploadedImages.map(src => `<img src="${src}">`).join('')}
-  </div>
-  `
-  :
-  '';
-
-  pdfArea.innerHTML = `
-
-    <div class="report-header">
-
-      <h1>${getValue('reportTitle')}</h1>
-
-      <p>${getValue('reportType')}</p>
-
-    </div>
-
-    <div class="report-info">
-
-      <div class="info-box">
-        <strong>اسم المدرسة:</strong><br>
-        ${getValue('schoolName')}
-      </div>
-
-      <div class="info-box">
-        <strong>اسم المرشد / المعد:</strong><br>
-        ${getValue('teacherName')}
-      </div>
-
-      <div class="info-box">
-        <strong>التاريخ:</strong><br>
-        ${getValue('reportDate')}
-      </div>
-
-      <div class="info-box">
-        <strong>الفئة المستهدفة:</strong><br>
-        ${getValue('targetGroup')}
-      </div>
-
-    </div>
-
-    <h3>الأهداف</h3>
-
-    <div class="report-content">
-      ${getValue('goals')}
-    </div>
-
-    <h3>وصف التنفيذ</h3>
-
-    <div class="report-content">
-      ${getValue('content')}
-    </div>
-
-    ${imagesHtml}
-
-    <div class="report-footer">
-
-      <div class="signature">
-        توقيع المعد
-      </div>
-
-      <div class="signature">
-        اعتماد قائد المدرسة
-      </div>
-
-    </div>
-
-  `;
-
-  reportPreview.style.display = 'block';
-
-}
-
-async function downloadPDF(){
-
-  buildReport();
-
-  await new Promise(resolve => setTimeout(resolve, 1000));
-
-  const element = document.getElementById('pdfArea');
-
-  if(!element.innerHTML.trim()){
-
-    alert('قم بإنشاء التقرير أولاً');
-
-    return;
-
+  function value(id) {
+    return document.getElementById(id).value || "غير محدد";
   }
 
-  const clone = element.cloneNode(true);
+  function loadDegrees() {
+    const stage = document.getElementById("stage").value;
+    const degree = document.getElementById("degree");
+    const problem = document.getElementById("problem");
 
-  clone.style.width = '794px';
-  clone.style.background = '#ffffff';
-  clone.style.padding = '30px';
-  clone.style.position = 'absolute';
-  clone.style.top = '-99999px';
-  clone.style.left = '0';
+    degree.innerHTML = '<option value="">اختر الدرجة</option>';
+    problem.innerHTML = '<option value="">اختر المشكلة</option>';
 
-  document.body.appendChild(clone);
+    if (!stage) return;
 
-  const images = clone.querySelectorAll('img');
-
-  await Promise.all(
-    Array.from(images).map(img => {
-
-      return new Promise(resolve => {
-
-        if(img.complete){
-
-          resolve();
-
-        }else{
-
-          img.onload = resolve;
-          img.onerror = resolve;
-
-        }
-
-      });
-
-    })
-  );
-
-  const canvas = await html2canvas(clone, {
-
-    scale:2,
-    useCORS:true,
-    backgroundColor:'#ffffff'
-
-  });
-
-  document.body.removeChild(clone);
-
-  const imgData = canvas.toDataURL('image/jpeg',1.0);
-
-  const { jsPDF } = window.jspdf;
-
-  const pdf = new jsPDF('p','mm','a4');
-
-  const pdfWidth = 210;
-
-  const pdfHeight = 297;
-
-  const imgWidth = pdfWidth;
-
-  const imgHeight = (canvas.height * imgWidth) / canvas.width;
-
-  let heightLeft = imgHeight;
-
-  let position = 0;
-
-  pdf.addImage(imgData,'JPEG',0,position,imgWidth,imgHeight);
-
-  heightLeft -= pdfHeight;
-
-  while(heightLeft > 0){
-
-    position = heightLeft - imgHeight;
-
-    pdf.addPage();
-
-    pdf.addImage(imgData,'JPEG',0,position,imgWidth,imgHeight);
-
-    heightLeft -= pdfHeight;
-
+    Object.keys(data[stage]).forEach(key => {
+      const option = document.createElement("option");
+      option.value = key;
+      option.textContent = key;
+      degree.appendChild(option);
+    });
   }
 
-  const title =
-  document.getElementById('reportTitle').value || 'report';
+  function loadProblems() {
+    const stage = document.getElementById("stage").value;
+    const degree = document.getElementById("degree").value;
+    const problem = document.getElementById("problem");
 
-  pdf.save(title + '.pdf');
+    problem.innerHTML = '<option value="">اختر المشكلة</option>';
 
-}
+    if (!stage || !degree) return;
 
-function clearForm(){
+    data[stage][degree].problems.forEach(item => {
+      const option = document.createElement("option");
+      option.value = item;
+      option.textContent = item;
+      problem.appendChild(option);
+    });
 
-  document.getElementById('reportType').value =
-  'تقرير برنامج توجيهي';
+    document.getElementById("action").value = data[stage][degree].action;
+  }
 
-  document.getElementById('reportDate').valueAsDate =
-  new Date();
+  function fillDetails() {
+    const stage = document.getElementById("stage").value;
+    const degree = document.getElementById("degree").value;
 
-  document.getElementById('schoolName').value = '';
+    if (stage && degree) {
+      document.getElementById("action").value = data[stage][degree].action;
+    }
+  }
 
-  document.getElementById('teacherName').value = '';
+  function buildReport() {
+    const stageText = document.getElementById("stage").selectedOptions[0]?.textContent || "غير محدد";
+    const degree = value("degree");
+    const problem = value("problem");
 
-  document.getElementById('reportTitle').value = '';
+    let discount = "غير محدد";
 
-  document.getElementById('targetGroup').value = '';
+    const stage = document.getElementById("stage").value;
+    if (stage && degree && data[stage][degree]) {
+      discount = data[stage][degree].discount;
+    }
 
-  document.getElementById('goals').value = '';
+    const report = document.getElementById("report");
 
-  document.getElementById('content').value = '';
+    report.innerHTML = `
+      <div class="report-head">
+        <h1>نموذج رصد مشكلة سلوكية</h1>
+        <p>وفق قواعد السلوك والمواظبة لطلاب وطالبات التعليم العام</p>
+      </div>
 
-  document.getElementById('images').value = '';
+      <div class="report-grid">
+        <div class="item"><strong>اسم المدرسة:</strong><br>${value("school")}</div>
+        <div class="item"><strong>التاريخ:</strong><br>${value("date")}</div>
+        <div class="item"><strong>اسم الطالب:</strong><br>${value("student")}</div>
+        <div class="item"><strong>الصف / الفصل:</strong><br>${value("className")}</div>
+        <div class="item"><strong>اسم المعلم:</strong><br>${value("teacher")}</div>
+        <div class="item"><strong>المادة / الحصة:</strong><br>${value("subject")}</div>
+        <div class="item"><strong>المرحلة:</strong><br>${stageText}</div>
+        <div class="item"><strong>درجة المشكلة:</strong><br>${degree}</div>
+        <div class="item"><strong>مقدار الحسم:</strong><br>${discount}</div>
+        <div class="item"><strong>عدد مرات التكرار:</strong><br>${value("repeat")}</div>
+      </div>
 
-  document.getElementById('imagePreview').innerHTML = '';
+      <div class="section-title">المشكلة السلوكية</div>
+      <div class="section">${problem}</div>
 
-  document.getElementById('pdfArea').innerHTML = '';
+      <div class="section-title">وصف الموقف</div>
+      <div class="section">${value("description")}</div>
 
-  document.getElementById('reportPreview').style.display =
-  'none';
+      <div class="section-title">الإجراء المتخذ</div>
+      <div class="section">${value("action")}</div>
 
-  uploadedImages = [];
+      <div class="section-title">مدى استجابة الطالب</div>
+      <div class="section">${value("response")}</div>
 
-}
+      <div class="section-title">ملاحظات إضافية</div>
+      <div class="section">${value("notes")}</div>
 
+      <div class="signatures">
+        <div class="sig">
+          توقيع المعلم<br>
+          ${value("signature")}
+        </div>
+
+        <div class="sig">
+          توقيع الموجه الطلابي
+        </div>
+
+        <div class="sig">
+          اعتماد إدارة المدرسة
+        </div>
+      </div>
+    `;
+
+    document.getElementById("previewBox").style.display = "block";
+    document.getElementById("previewBox").scrollIntoView({ behavior: "smooth" });
+  }
+
+  async function downloadPDF() {
+    buildReport();
+
+    await new Promise(resolve => setTimeout(resolve, 500));
+
+    const original = document.getElementById("report");
+    const clone = original.cloneNode(true);
+
+    clone.style.width = "794px";
+    clone.style.minHeight = "1123px";
+    clone.style.background = "#ffffff";
+    clone.style.padding = "35px";
+    clone.style.position = "absolute";
+    clone.style.top = "0";
+    clone.style.left = "-9999px";
+    clone.style.direction = "rtl";
+    clone.style.fontFamily = "Tahoma, Arial, sans-serif";
+
+    document.body.appendChild(clone);
+
+    const canvas = await html2canvas(clone, {
+      scale: 2,
+      backgroundColor: "#ffffff",
+      useCORS: true
+    });
+
+    document.body.removeChild(clone);
+
+    const imgData = canvas.toDataURL("image/jpeg", 1.0);
+
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF("p", "mm", "a4");
+
+    const pageWidth = 210;
+    const pageHeight = 297;
+
+    const imgWidth = pageWidth;
+    const imgHeight = canvas.height * imgWidth / canvas.width;
+
+    let heightLeft = imgHeight;
+    let position = 0;
+
+    pdf.addImage(imgData, "JPEG", 0, position, imgWidth, imgHeight);
+    heightLeft -= pageHeight;
+
+    while (heightLeft > 0) {
+      position = heightLeft - imgHeight;
+      pdf.addPage();
+      pdf.addImage(imgData, "JPEG", 0, position, imgWidth, imgHeight);
+      heightLeft -= pageHeight;
+    }
+
+    const studentName = value("student").replace(/[\\/:*?"<>|]/g, "");
+    pdf.save("رصد مشكلة سلوكية - " + studentName + ".pdf");
+  }
+
+  function clearForm() {
+    document.querySelectorAll("input, textarea").forEach(el => {
+      if (el.type !== "date") el.value = "";
+    });
+
+    document.getElementById("date").valueAsDate = new Date();
+    document.getElementById("stage").value = "";
+    document.getElementById("degree").innerHTML = '<option value="">اختر الدرجة</option>';
+    document.getElementById("problem").innerHTML = '<option value="">اختر المشكلة</option>';
+    document.getElementById("report").innerHTML = "";
+    document.getElementById("previewBox").style.display = "none";
+    document.getElementById("repeat").value = 1;
+  }
 </script>
 
 </body>
