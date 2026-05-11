@@ -266,15 +266,34 @@
       <label>محتوى التقرير</label>
       <textarea placeholder="اكتب تفاصيل التقرير هنا"></textarea>
 
-      <button class="btn secondary" onclick="downloadPDF()">تصدير PDF</button>
+      <button class="btn secondary" onclick="downloadPDF()">
+تصدير PDF
+</button>
     </div>
   </section>
 
-  <script>
-    function downloadPDF() {
-      window.print();
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<script>
+function downloadPDF() {
+
+  const element = document.body;
+
+  const options = {
+    margin: 0.5,
+    filename: 'report.pdf',
+    image: { type: 'jpeg', quality: 1 },
+    html2canvas: { scale: 2 },
+    jsPDF: {
+      unit: 'in',
+      format: 'a4',
+      orientation: 'portrait'
     }
-  </script>
+  };
+
+  html2pdf().set(options).from(element).save();
+}
+</script>
     </div>
   </section>
 
