@@ -2,550 +2,741 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>منصة التوجيه الطلابي</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Tahoma, Arial, sans-serif;
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+      font-family:Tahoma, Arial, sans-serif;
     }
 
-    body {
-      background: #f4f7fb;
-      color: #1f2937;
-      line-height: 1.8;
+    body{
+      background:#f4f7fb;
+      color:#1f2937;
+      line-height:1.8;
     }
 
-    header {
-      background: linear-gradient(135deg, #2563eb, #0f766e);
-      color: white;
-      padding: 24px 8%;
+    header{
+      background:linear-gradient(135deg,#2563eb,#0f766e);
+      color:white;
+      padding:24px 8%;
     }
 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:15px;
     }
 
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
+    .logo{
+      font-size:24px;
+      font-weight:bold;
     }
 
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      margin: 0 10px;
-      font-weight: 600;
+    .nav-links a{
+      color:white;
+      text-decoration:none;
+      margin:0 10px;
+      font-weight:bold;
     }
 
-    .hero {
-      padding: 60px 0 35px;
-      max-width: 850px;
+    .hero{
+      padding:60px 0 30px;
+      max-width:850px;
     }
 
-    .hero h1 {
-      font-size: 38px;
-      margin-bottom: 16px;
+    .hero h1{
+      font-size:38px;
+      margin-bottom:15px;
     }
 
-    .hero p {
-      font-size: 18px;
-      margin-bottom: 25px;
-      color: #e5e7eb;
+    .hero p{
+      font-size:18px;
+      color:#e5e7eb;
+      margin-bottom:25px;
     }
 
-    .btn {
-      display: inline-block;
-      background: #2563eb;
-      color: white;
-      padding: 12px 26px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      border: none;
-      cursor: pointer;
-      font-size: 15px;
+    .btn{
+      display:inline-block;
+      padding:12px 24px;
+      border:none;
+      border-radius:10px;
+      cursor:pointer;
+      font-size:15px;
+      font-weight:bold;
+      text-decoration:none;
+      background:#2563eb;
+      color:white;
     }
 
-    .btn.white {
-      background: white;
-      color: #2563eb;
+    .btn.white{
+      background:white;
+      color:#2563eb;
     }
 
-    .btn.gray {
-      background: #374151;
-      color: white;
+    .btn.gray{
+      background:#374151;
+      color:white;
     }
 
-    section {
-      padding: 45px 8%;
+    section{
+      padding:45px 8%;
     }
 
-    .section-title {
-      text-align: center;
-      font-size: 28px;
-      margin-bottom: 28px;
-      color: #111827;
+    .section-title{
+      text-align:center;
+      font-size:28px;
+      margin-bottom:28px;
     }
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 22px;
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:20px;
     }
 
-    .card {
-      background: white;
-      border-radius: 18px;
-      padding: 24px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.07);
-      border: 1px solid #e5e7eb;
+    .card{
+      background:white;
+      border-radius:18px;
+      padding:24px;
+      box-shadow:0 8px 25px rgba(0,0,0,0.07);
+      border:1px solid #e5e7eb;
     }
 
-    .card h3 {
-      color: #2563eb;
-      margin-bottom: 8px;
+    .card h3{
+      color:#2563eb;
+      margin-bottom:8px;
     }
 
-    .dashboard {
-      background: #eef6ff;
+    .dashboard{
+      background:#eef6ff;
     }
 
-    .template-card {
-      cursor: pointer;
-      transition: 0.2s;
+    .template-card{
+      cursor:pointer;
+      transition:0.2s;
     }
 
-    .template-card:hover {
-      transform: translateY(-5px);
-      border-color: #2563eb;
+    .template-card:hover{
+      transform:translateY(-5px);
+      border-color:#2563eb;
     }
 
-    .form-box {
-      max-width: 900px;
-      margin: auto;
-      background: white;
-      padding: 30px;
-      border-radius: 18px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+    .form-box{
+      max-width:900px;
+      margin:auto;
+      background:white;
+      padding:30px;
+      border-radius:18px;
+      box-shadow:0 8px 25px rgba(0,0,0,0.07);
     }
 
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
     }
 
-    label {
-      display: block;
-      margin-bottom: 6px;
-      font-weight: bold;
+    label{
+      display:block;
+      margin-bottom:6px;
+      font-weight:bold;
     }
 
     input,
     textarea,
-    select {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 16px;
-      border: 1px solid #d1d5db;
-      border-radius: 10px;
-      font-size: 15px;
-      background: white;
+    select{
+      width:100%;
+      padding:12px;
+      margin-bottom:16px;
+      border:1px solid #d1d5db;
+      border-radius:10px;
+      font-size:15px;
     }
 
-    textarea {
-      min-height: 120px;
-      resize: vertical;
+    textarea{
+      min-height:120px;
+      resize:vertical;
     }
 
-    .actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 8px;
+    .actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:8px;
     }
 
-    #imagePreview {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-      gap: 12px;
-      margin-top: 12px;
+    #imagePreview{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+      gap:12px;
+      margin-top:12px;
     }
 
-    #imagePreview img {
-      width: 100%;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 12px;
-      border: 1px solid #e5e7eb;
+    #imagePreview img{
+      width:100%;
+      height:120px;
+      object-fit:cover;
+      border-radius:12px;
+      border:1px solid #e5e7eb;
     }
 
-    #reportPreview {
-      max-width: 850px;
-      margin: 35px auto 0;
-      background: white;
-      padding: 35px;
-      border-radius: 18px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.07);
-      display: none;
+    #reportPreview{
+      max-width:850px;
+      margin:35px auto 0;
+      background:white;
+      padding:35px;
+      border-radius:18px;
+      box-shadow:0 8px 25px rgba(0,0,0,0.07);
+      display:none;
     }
 
-    .report-paper {
-      background: white;
-      color: #111827;
-      direction: rtl;
+    .report-paper{
+      background:white;
+      color:#111827;
     }
 
-    .report-header {
-      text-align: center;
-      border-bottom: 3px solid #2563eb;
-      padding-bottom: 18px;
-      margin-bottom: 22px;
+    .report-header{
+      text-align:center;
+      border-bottom:3px solid #2563eb;
+      padding-bottom:18px;
+      margin-bottom:22px;
     }
 
-    .report-header h1 {
-      font-size: 28px;
-      color: #111827;
-      margin-bottom: 8px;
+    .report-header h1{
+      font-size:28px;
+      margin-bottom:8px;
     }
 
-    .report-info {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-bottom: 24px;
+    .report-info{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:12px;
+      margin-bottom:24px;
     }
 
-    .info-box {
-      background: #f8fafc;
-      border: 1px solid #e5e7eb;
-      border-radius: 12px;
-      padding: 12px;
+    .info-box{
+      background:#f8fafc;
+      border:1px solid #e5e7eb;
+      border-radius:12px;
+      padding:12px;
     }
 
-    .info-box strong {
-      color: #2563eb;
+    .info-box strong{
+      color:#2563eb;
     }
 
-    .report-content {
-      border: 1px solid #e5e7eb;
-      border-radius: 12px;
-      padding: 18px;
-      min-height: 120px;
-      white-space: pre-line;
-      margin-bottom: 22px;
+    .report-content{
+      border:1px solid #e5e7eb;
+      border-radius:12px;
+      padding:18px;
+      min-height:120px;
+      white-space:pre-line;
+      margin-bottom:22px;
     }
 
-    .report-images {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-      margin-top: 15px;
+    .report-images{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+      margin-top:15px;
     }
 
-    .report-images img {
-      width: 100%;
-      max-height: 230px;
-      object-fit: cover;
-      border-radius: 12px;
-      border: 1px solid #d1d5db;
+    .report-images img{
+      width:100%;
+      max-height:230px;
+      object-fit:cover;
+      border-radius:12px;
+      border:1px solid #d1d5db;
     }
 
-    .report-footer {
-      margin-top: 30px;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-      text-align: center;
+    .report-footer{
+      margin-top:30px;
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
+      text-align:center;
     }
 
-    .signature {
-      border-top: 1px solid #9ca3af;
-      padding-top: 10px;
-      margin-top: 35px;
+    .signature{
+      border-top:1px solid #9ca3af;
+      padding-top:10px;
+      margin-top:35px;
     }
 
-    footer {
-      text-align: center;
-      padding: 24px;
-      background: #111827;
-      color: white;
-      margin-top: 40px;
+    footer{
+      text-align:center;
+      padding:24px;
+      background:#111827;
+      color:white;
+      margin-top:40px;
     }
 
-    @media (max-width: 700px) {
-      .hero h1 {
-        font-size: 28px;
+    @media (max-width:700px){
+
+      .hero h1{
+        font-size:28px;
       }
 
       .grid-2,
       .report-info,
       .report-footer,
-      .report-images {
-        grid-template-columns: 1fr;
+      .report-images{
+        grid-template-columns:1fr;
       }
+
     }
   </style>
 </head>
+
 <body>
 
-  <header>
-    <nav>
-      <div class="logo">منصة التوجيه الطلابي</div>
-      <div class="nav-links">
-        <a href="#home">الرئيسية</a>
-        <a href="#templates">القوالب</a>
-        <a href="#reportForm">إنشاء تقرير</a>
-      </div>
-    </nav>
+<header>
 
-    <div class="hero" id="home">
-      <h1>أنشئ تقارير التوجيه الطلابي بسهولة</h1>
-      <p>واجهة مجانية لإنشاء تقرير، رفع صور، معاينة التقرير، ثم تصديره بصيغة PDF.</p>
-      <a class="btn white" href="#reportForm">ابدأ الآن</a>
+  <nav>
+    <div class="logo">منصة التوجيه الطلابي</div>
+
+    <div class="nav-links">
+      <a href="#home">الرئيسية</a>
+      <a href="#templates">القوالب</a>
+      <a href="#reportForm">إنشاء تقرير</a>
     </div>
-  </header>
+  </nav>
 
-  <section>
-    <h2 class="section-title">مميزات المنصة</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>تعبئة سهلة</h3>
-        <p>أدخل بيانات المدرسة والموجه الطلابي والبرنامج في نموذج واحد واضح.</p>
-      </div>
-      <div class="card">
-        <h3>رفع صور</h3>
-        <p>أضف صور البرنامج أو النشاط لتظهر داخل التقرير النهائي.</p>
-      </div>
-      <div class="card">
-        <h3>تصدير PDF</h3>
-        <p>صدّر التقرير النهائي.</p>
-      </div>
-    </div>
-  </section>
+  <div class="hero" id="home">
+    <p>واجهة مجانية لإنشاء التقارير وتصديرها PDF.</p>
+    <a class="btn white" href="#reportForm">ابدأ الآن</a>
+  </div>
 
-  <section class="dashboard" id="templates">
-    <h2 class="section-title">قوالب جاهزة</h2>
-    <div class="cards">
-      <div class="card template-card" onclick="chooseTemplate('تقرير برنامج توجيهي')">
-        <h3>تقرير برنامج توجيهي</h3>
-        <p>مناسب لتوثيق البرامج والفعاليات التوجيهية.</p>
-      </div>
-      <div class="card template-card" onclick="chooseTemplate('تقرير حالة طالب')">
-        <h3>تقرير حالة طالب</h3>
-        <p>مناسب لتوثيق المتابعة والإجراءات التربوية.</p>
-      </div>
-      <div class="card template-card" onclick="chooseTemplate('تقرير اجتماع')">
-        <h3>تقرير اجتماع</h3>
-        <p>مناسب لتوثيق اجتماع لجنة أو لقاء توجيهي.</p>
-      </div>
-      <div class="card template-card" onclick="chooseTemplate('تقرير زيارة')">
-        <h3>تقرير زيارة</h3>
-        <p>مناسب لتوثيق الزيارات أو المبادرات المدرسية.</p>
-      </div>
-    </div>
-  </section>
+</header>
 
-  <section id="reportForm">
-    <h2 class="section-title">إنشاء تقرير جديد</h2>
+<section>
 
-    <div class="form-box">
-      <div class="grid-2">
-        <div>
-          <label>نوع التقرير</label>
-          <select id="reportType">
-            <option>تقرير برنامج توجيهي</option>
-            <option>تقرير حالة طالب</option>
-            <option>تقرير اجتماع</option>
-            <option>تقرير زيارة</option>
-          </select>
-        </div>
-        <div>
-          <label>تاريخ التقرير</label>
-          <input id="reportDate" type="date" />
-        </div>
-      </div>
+  <h2 class="section-title">مميزات المنصة</h2>
 
-      <div class="grid-2">
-        <div>
-          <label>اسم المدرسة</label>
-          <input id="schoolName" type="text" placeholder="اكتب اسم المدرسة" />
-        </div>
-        <div>
-          <label>اسم الموجه الطلابي / المعد</label>
-          <input id="teacherName" type="text" placeholder="اكتب اسم المرشد أو المعد" />
-        </div>
-      </div>
+  <div class="cards">
 
-      <div class="grid-2">
-        <div>
-          <label>عنوان التقرير</label>
-          <input id="reportTitle" type="text" placeholder="مثال: تقرير تنفيذ برنامج توجيهي" />
-        </div>
-        <div>
-          <label>الفئة المستهدفة</label>
-          <input id="targetGroup" type="text" placeholder="مثال: طلاب الصف الثالث المتوسط" />
-        </div>
-      </div>
-
-      <label>أهداف التقرير / البرنامج</label>
-      <textarea id="goals" placeholder="اكتب أهداف البرنامج أو التقرير"></textarea>
-
-      <label>وصف مختصر للتنفيذ</label>
-      <textarea id="content" placeholder="اكتب تفاصيل التقرير هنا"></textarea>
-
-      <label>الصور</label>
-      <input id="images" type="file" accept="image/*" multiple onchange="previewImages()" />
-      <div id="imagePreview"></div>
-
-      <div class="actions">
-        <button class="btn" onclick="buildReport()">معاينة التقرير</button>
-        <button class="btn gray" onclick="downloadPDF()">تصدير PDF</button>
-        <button class="btn gray" onclick="clearForm()">مسح البيانات</button>
-      </div>
+    <div class="card">
+      <h3>تعبئة سهلة</h3>
+      <p>إدخال بيانات التقرير بسهولة.</p>
     </div>
 
-    <div id="reportPreview">
-      <div id="pdfArea" class="report-paper"></div>
+    <div class="card">
+      <h3>رفع صور</h3>
+      <p>إضافة صور داخل التقرير النهائي.</p>
     </div>
-  </section>
 
-  <footer>
-    جميع الحقوق محفوظة © منصة التوجيه الطلابي
-  </footer>
+    <div class="card">
+      <h3>تصدير PDF</h3>
+      <p>تصدير التقرير النهائي بشكل احترافي.</p>
+    </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  </div>
 
-  <script>
-    let uploadedImages = [];
+</section>
 
-    document.getElementById('reportDate').valueAsDate = new Date();
+<section class="dashboard" id="templates">
 
-    function chooseTemplate(templateName) {
-      document.getElementById('reportType').value = templateName;
-      document.getElementById('reportTitle').value = templateName;
-      document.getElementById('reportForm').scrollIntoView({ behavior: 'smooth' });
-    }
+  <h2 class="section-title">قوالب جاهزة</h2>
 
-    function previewImages() {
-      const files = document.getElementById('images').files;
-      const preview = document.getElementById('imagePreview');
-      preview.innerHTML = '';
-      uploadedImages = [];
+  <div class="cards">
 
-      Array.from(files).forEach(file => {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          uploadedImages.push(e.target.result);
-          const img = document.createElement('img');
-          img.src = e.target.result;
-          preview.appendChild(img);
-        };
-        reader.readAsDataURL(file);
-      });
-    }
+    <div class="card template-card" onclick="chooseTemplate('تقرير برنامج توجيهي')">
+      <h3>تقرير برنامج توجيهي</h3>
+    </div>
 
-    function getValue(id) {
-      return document.getElementById(id).value || 'غير محدد';
-    }
+    <div class="card template-card" onclick="chooseTemplate('تقرير حالة طالب')">
+      <h3>تقرير حالة طالب</h3>
+    </div>
 
-    function buildReport() {
-      const pdfArea = document.getElementById('pdfArea');
-      const reportPreview = document.getElementById('reportPreview');
+    <div class="card template-card" onclick="chooseTemplate('تقرير اجتماع')">
+      <h3>تقرير اجتماع</h3>
+    </div>
 
-      const imagesHtml = uploadedImages.length
-        ? `<h3>صور التقرير:</h3><div class="report-images">${uploadedImages.map(src => `<img src="${src}" />`).join('')}</div>`
-        : '';
+    <div class="card template-card" onclick="chooseTemplate('تقرير زيارة')">
+      <h3>تقرير زيارة</h3>
+    </div>
 
-      pdfArea.innerHTML = `
-        <div class="report-header">
-          <h1>${getValue('reportTitle')}</h1>
-          <p>${getValue('reportType')}</p>
-        </div>
+  </div>
 
-        <div class="report-info">
-          <div class="info-box"><strong>اسم المدرسة:</strong><br>${getValue('schoolName')}</div>
-          <div class="info-box"><strong>اسم المرشد / المعد:</strong><br>${getValue('teacherName')}</div>
-          <div class="info-box"><strong>تاريخ التقرير:</strong><br>${getValue('reportDate')}</div>
-          <div class="info-box"><strong>الفئة المستهدفة:</strong><br>${getValue('targetGroup')}</div>
-        </div>
+</section>
 
-        <h3>الأهداف:</h3>
-        <div class="report-content">${getValue('goals')}</div>
+<section id="reportForm">
 
-        <h3>وصف التنفيذ:</h3>
-        <div class="report-content">${getValue('content')}</div>
+  <h2 class="section-title">إنشاء تقرير</h2>
 
-        ${imagesHtml}
+  <div class="form-box">
 
-        <div class="report-footer">
-          <div class="signature">توقيع المعد</div>
-          <div class="signature">اعتماد قائد المدرسة</div>
-        </div>
-      `;
+    <div class="grid-2">
 
-      reportPreview.style.display = 'block';
-      reportPreview.scrollIntoView({ behavior: 'smooth' });
-    }
+      <div>
+        <label>نوع التقرير</label>
 
-    function downloadPDF() {
-  buildReport();
+        <select id="reportType">
+          <option>تقرير برنامج توجيهي</option>
+          <option>تقرير حالة طالب</option>
+          <option>تقرير اجتماع</option>
+          <option>تقرير زيارة</option>
+        </select>
+      </div>
 
-  setTimeout(function () {
-    const element = document.getElementById('pdfArea');
-    const title = document.getElementById('reportTitle').value || 'report';
+      <div>
+        <label>تاريخ التقرير</label>
+        <input id="reportDate" type="date">
+      </div>
 
-    element.style.display = 'block';
-    element.style.background = 'white';
-    element.style.color = '#111827';
-    element.style.padding = '30px';
-    element.style.width = '750px';
-    element.style.minHeight = '1000px';
+    </div>
 
-    const options = {
-      margin: 0.3,
-      filename: title + '.pdf',
-      image: { type: 'jpeg', quality: 1 },
-      html2canvas: {
-        scale: 2,
-        useCORS: true,
-        backgroundColor: '#ffffff'
-      },
-      jsPDF: {
-        unit: 'in',
-        format: 'a4',
-        orientation: 'portrait'
-      }
-    };
+    <div class="grid-2">
 
-    html2pdf().set(options).from(element).save();
-  }, 500);
+      <div>
+        <label>اسم المدرسة</label>
+        <input id="schoolName" type="text">
+      </div>
+
+      <div>
+        <label>اسم الموجه الطلابي </label>
+        <input id="teacherName" type="text">
+      </div>
+
+    </div>
+
+    <div class="grid-2">
+
+      <div>
+        <label>عنوان التقرير</label>
+        <input id="reportTitle" type="text">
+      </div>
+
+      <div>
+        <label>الفئة المستهدفة</label>
+        <input id="targetGroup" type="text">
+      </div>
+
+    </div>
+
+    <label>الأهداف</label>
+    <textarea id="goals"></textarea>
+
+    <label>وصف التنفيذ</label>
+    <textarea id="content"></textarea>
+
+    <label>رفع الصور</label>
+    <input id="images" type="file" multiple accept="image/*" onchange="previewImages()">
+
+    <div id="imagePreview"></div>
+
+    <div class="actions">
+
+      <button class="btn" onclick="buildReport()">
+        معاينة التقرير
+      </button>
+
+      <button class="btn gray" onclick="downloadPDF()">
+        تصدير PDF
+      </button>
+
+      <button class="btn gray" onclick="clearForm()">
+        مسح البيانات
+      </button>
+
+    </div>
+
+  </div>
+
+  <div id="reportPreview">
+    <div id="pdfArea" class="report-paper"></div>
+  </div>
+
+</section>
+
+<footer>
+  جميع الحقوق محفوظة © منصة التوجيه الطلابي
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script>
+
+let uploadedImages = [];
+
+document.getElementById('reportDate').valueAsDate = new Date();
+
+function chooseTemplate(name){
+
+  document.getElementById('reportType').value = name;
+  document.getElementById('reportTitle').value = name;
+
+  document.getElementById('reportForm').scrollIntoView({
+    behavior:'smooth'
+  });
+
 }
 
-    function clearForm() {
-      document.getElementById('reportType').value = 'تقرير برنامج توجيهي';
-      document.getElementById('reportDate').valueAsDate = new Date();
-      document.getElementById('schoolName').value = '';
-      document.getElementById('teacherName').value = '';
-      document.getElementById('reportTitle').value = '';
-      document.getElementById('targetGroup').value = '';
-      document.getElementById('goals').value = '';
-      document.getElementById('content').value = '';
-      document.getElementById('images').value = '';
-      document.getElementById('imagePreview').innerHTML = '';
-      document.getElementById('pdfArea').innerHTML = '';
-      document.getElementById('reportPreview').style.display = 'none';
-      uploadedImages = [];
-    }
-  </script>
+function previewImages(){
+
+  const files = document.getElementById('images').files;
+
+  const preview = document.getElementById('imagePreview');
+
+  preview.innerHTML = '';
+
+  uploadedImages = [];
+
+  Array.from(files).forEach(file => {
+
+    const reader = new FileReader();
+
+    reader.onload = function(e){
+
+      uploadedImages.push(e.target.result);
+
+      const img = document.createElement('img');
+
+      img.src = e.target.result;
+
+      preview.appendChild(img);
+
+    };
+
+    reader.readAsDataURL(file);
+
+  });
+
+}
+
+function getValue(id){
+
+  return document.getElementById(id).value || 'غير محدد';
+
+}
+
+function buildReport(){
+
+  const pdfArea = document.getElementById('pdfArea');
+
+  const reportPreview = document.getElementById('reportPreview');
+
+  const imagesHtml = uploadedImages.length
+  ?
+  `
+  <h3>صور التقرير</h3>
+
+  <div class="report-images">
+    ${uploadedImages.map(src => `<img src="${src}">`).join('')}
+  </div>
+  `
+  :
+  '';
+
+  pdfArea.innerHTML = `
+
+    <div class="report-header">
+
+      <h1>${getValue('reportTitle')}</h1>
+
+      <p>${getValue('reportType')}</p>
+
+    </div>
+
+    <div class="report-info">
+
+      <div class="info-box">
+        <strong>اسم المدرسة:</strong><br>
+        ${getValue('schoolName')}
+      </div>
+
+      <div class="info-box">
+        <strong>اسم المرشد / المعد:</strong><br>
+        ${getValue('teacherName')}
+      </div>
+
+      <div class="info-box">
+        <strong>التاريخ:</strong><br>
+        ${getValue('reportDate')}
+      </div>
+
+      <div class="info-box">
+        <strong>الفئة المستهدفة:</strong><br>
+        ${getValue('targetGroup')}
+      </div>
+
+    </div>
+
+    <h3>الأهداف</h3>
+
+    <div class="report-content">
+      ${getValue('goals')}
+    </div>
+
+    <h3>وصف التنفيذ</h3>
+
+    <div class="report-content">
+      ${getValue('content')}
+    </div>
+
+    ${imagesHtml}
+
+    <div class="report-footer">
+
+      <div class="signature">
+        توقيع المعد
+      </div>
+
+      <div class="signature">
+        اعتماد قائد المدرسة
+      </div>
+
+    </div>
+
+  `;
+
+  reportPreview.style.display = 'block';
+
+}
+
+async function downloadPDF(){
+
+  buildReport();
+
+  await new Promise(resolve => setTimeout(resolve, 1000));
+
+  const element = document.getElementById('pdfArea');
+
+  if(!element.innerHTML.trim()){
+
+    alert('قم بإنشاء التقرير أولاً');
+
+    return;
+
+  }
+
+  const clone = element.cloneNode(true);
+
+  clone.style.width = '794px';
+  clone.style.background = '#ffffff';
+  clone.style.padding = '30px';
+  clone.style.position = 'absolute';
+  clone.style.top = '-99999px';
+  clone.style.left = '0';
+
+  document.body.appendChild(clone);
+
+  const images = clone.querySelectorAll('img');
+
+  await Promise.all(
+    Array.from(images).map(img => {
+
+      return new Promise(resolve => {
+
+        if(img.complete){
+
+          resolve();
+
+        }else{
+
+          img.onload = resolve;
+          img.onerror = resolve;
+
+        }
+
+      });
+
+    })
+  );
+
+  const canvas = await html2canvas(clone, {
+
+    scale:2,
+    useCORS:true,
+    backgroundColor:'#ffffff'
+
+  });
+
+  document.body.removeChild(clone);
+
+  const imgData = canvas.toDataURL('image/jpeg',1.0);
+
+  const { jsPDF } = window.jspdf;
+
+  const pdf = new jsPDF('p','mm','a4');
+
+  const pdfWidth = 210;
+
+  const pdfHeight = 297;
+
+  const imgWidth = pdfWidth;
+
+  const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+  let heightLeft = imgHeight;
+
+  let position = 0;
+
+  pdf.addImage(imgData,'JPEG',0,position,imgWidth,imgHeight);
+
+  heightLeft -= pdfHeight;
+
+  while(heightLeft > 0){
+
+    position = heightLeft - imgHeight;
+
+    pdf.addPage();
+
+    pdf.addImage(imgData,'JPEG',0,position,imgWidth,imgHeight);
+
+    heightLeft -= pdfHeight;
+
+  }
+
+  const title =
+  document.getElementById('reportTitle').value || 'report';
+
+  pdf.save(title + '.pdf');
+
+}
+
+function clearForm(){
+
+  document.getElementById('reportType').value =
+  'تقرير برنامج توجيهي';
+
+  document.getElementById('reportDate').valueAsDate =
+  new Date();
+
+  document.getElementById('schoolName').value = '';
+
+  document.getElementById('teacherName').value = '';
+
+  document.getElementById('reportTitle').value = '';
+
+  document.getElementById('targetGroup').value = '';
+
+  document.getElementById('goals').value = '';
+
+  document.getElementById('content').value = '';
+
+  document.getElementById('images').value = '';
+
+  document.getElementById('imagePreview').innerHTML = '';
+
+  document.getElementById('pdfArea').innerHTML = '';
+
+  document.getElementById('reportPreview').style.display =
+  'none';
+
+  uploadedImages = [];
+
+}
+
+</script>
 
 </body>
 </html>
