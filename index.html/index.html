@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>منصة التقارير التعليمية</title>
+  <title>منصة التوجيه الطلابي </title>
   <style>
     * {
       box-sizing: border-box;
@@ -174,7 +174,7 @@
 
   <header>
     <nav>
-      <div class="logo">منصة تقاريري</div>
+      <div class="logo">منصة تقارير التوجيه الطلابي</div>
       <div class="nav-links">
         <a href="#home">الرئيسية</a>
         <a href="#templates">القوالب</a>
@@ -184,8 +184,8 @@
     </nav>
 
     <div class="hero" id="home">
-      <h1>أنشئ تقاريرك التعليمية بسهولة</h1>
-      <p>منصة عربية بسيطة تساعد المعلم على إنشاء تقارير مدرسية جاهزة ومنسقة خلال دقائق.</p>
+      <h1>أنشئ تقاريرك للتوجيه الطلابي بسهولة</h1>
+      <p>منصة تساعد الموجه الطلابي على إنشاء تقاريره بسهولة خلال دقائق.</p>
       <a class="btn" href="#report">ابدأ الآن مجانًا</a>
     </div>
   </header>
@@ -202,7 +202,7 @@
         <p>تصميم بسيط ومرتب يدعم اللغة العربية بالكامل.</p>
       </div>
       <div class="card">
-        <h3>مجاني كبداية</h3>
+        <h3>مجاني </h3>
         <p>يمكنك استخدام هذا النموذج بدون دفع أي تكلفة.</p>
       </div>
     </div>
@@ -266,7 +266,15 @@
       <label>محتوى التقرير</label>
       <textarea placeholder="اكتب تفاصيل التقرير هنا"></textarea>
 
-      <button class="btn secondary" onclick="alert('هذه نسخة تجريبية. يمكن لاحقًا إضافة توليد PDF')">معاينة التقرير</button>
+      <button class="btn secondary" onclick="downloadPDF()">تصدير PDF</button>
+    </div>
+  </section>
+
+  <script>
+    function downloadPDF() {
+      window.print();
+    }
+  </script>
     </div>
   </section>
 
